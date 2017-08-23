@@ -18,7 +18,7 @@ class AsanaClientAdapter(JSONAdapterMixin, TapiocaAdapter):
             api_params, *args, **kwargs)
 
         
-        params['auth'] = HTTPBasicAuth('Bearer', api_params.get('personal_key'))
+        params['auth'] = HTTPBasicAuth(api_params.get('personal_key'), '')
         
 
         return params
