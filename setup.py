@@ -11,12 +11,9 @@ import os
 import re
 import sys
 
-try:
-    import pypandoc
-    readme = pypandoc.convert('README.md', 'rst')
-except (IOError, ImportError):
-    readme = ''
 
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as f:
+    readme = f.read()
 
 package = 'tapioca_asana'
 requirements = [
@@ -68,7 +65,7 @@ if sys.argv[-1] == 'publish':
 setup(
     name='tapioca-asana',
     version=get_version(package),
-    description='Asana API wrapper using tapioca',
+    description='Tapioca Asana: Smart python client for Asana.com API',
     long_description=readme,
     author=get_author(package),
     author_email=get_email(package),
